@@ -12,12 +12,8 @@
         },
         "eventGridTopicName": {
             "type": "string"
-        },
-
-        "applicationInsightsLocation": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]"
         }
+        
     },
     "variables": {
         "resourceNamePrefix": "crimg",
@@ -63,7 +59,7 @@
             "name": "[variables('applicationInsightsName')]",
             "type": "Microsoft.Insights/components",
             "apiVersion": "2014-04-01",
-            "location": "[parameters('applicationInsightsLocation')]",
+            "location": "[resourceGroup().location]",
             "kind": "other",
             "properties": {
                 "applicationId": "[variables('applicationInsightsName')]"
